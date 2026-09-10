@@ -1,18 +1,35 @@
-## Getting Started
+# JobFlow
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+JobFlow es una aplicación en Java pensada para gestionar y hacer seguimiento de candidaturas de empleo.
 
-## Folder Structure
+El objetivo del proyecto es utilizarlo como práctica para reforzar conocimientos de desarrollo backend y, progresivamente, ampliarlo con tecnologías como Spring Boot, APIs REST, bases de datos y testing.
 
-The workspace contains two folders by default, where:
+## Día 1
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+En el primer día del proyecto he trabajado principalmente:
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- Creación de clases y objetos en Java.
+- Encapsulación mediante atributos privados.
+- Uso de `enum` para representar estados y modalidades de trabajo.
+- Uso de `ArrayList` para gestionar candidaturas.
+- Creación de métodos para buscar candidaturas y cambiar su estado.
+- Separación de la lógica en una clase `JobApplicationManager`.
+- Primeros pasos con Git y GitHub.
+- Creación de commits y subida del proyecto a un repositorio remoto.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Estructura actual
 
-## Dependency Management
+El proyecto contiene actualmente:
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- `Main.java`
+- `JobApplication.java`
+- `JobApplicationManager.java`
+- `ApplicationStatus.java`
+- `WorkModality.java`
+
+## Cómo ejecutar el proyecto
+
+1. Clona el repositorio:
+
+```bash
+git clone URL_DEL_REPOSITORIO
