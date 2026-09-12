@@ -8,11 +8,11 @@ public class Main {
         List<JobApplication> applications = new ArrayList<>();
 
 
-        JobApplication application1 = new JobApplication(0, "DXC Technology", "Programador Java", "https://example.com", "Canary Islands", 
+        JobApplication application1 = new JobApplication(0L, "DXC Technology", "Programador Java", "https://example.com", "Canary Islands", 
                                              WorkModality.REMOTE, ApplicationStatus.APPLIED, LocalDate.now(), "Primera candidatura de prueba");
 
 
-        JobApplication application2 = new JobApplication(2, "DXC Technology", "Programador Java", "https://example.com", "Canary Islands", 
+        JobApplication application2 = new JobApplication(2L, "DXC Technology", "Programador Java", "https://example.com", "Canary Islands", 
                                              WorkModality.REMOTE, ApplicationStatus.APPLIED, LocalDate.now(), "Primera candidatura de prueba");
 
         applications.add(application1);
