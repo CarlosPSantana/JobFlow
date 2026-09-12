@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 
 public class JobApplication {
-    private int id;
+    private Long id;
     private String company;
     private String position;
     private String url;
@@ -12,7 +12,7 @@ public class JobApplication {
     private String notes;
 
 
-    public JobApplication(int id, String company, String position, String url, String location, WorkModality modality,
+    public JobApplication(Long id, String company, String position, String url, String location, WorkModality modality,
             ApplicationStatus status, LocalDate appliedDate, String notes) {
         this.id = id;
         this.company = company;
@@ -26,12 +26,12 @@ public class JobApplication {
     }
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
