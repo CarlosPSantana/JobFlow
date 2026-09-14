@@ -115,8 +115,13 @@ public class JobApplicationManager {
         List<JobApplication> appPositions = new ArrayList<>();
 
         for (JobApplication app : applications){
-            if (app.getPosition().toLowerCase().contains(position)) {
+            if (app.getPosition()
+                    .toLowerCase()
+                    .contains(position.trim().toLowerCase())) {
+
+
                 appPositions.add(app);
+
             }
         }
 
