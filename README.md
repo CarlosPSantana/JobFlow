@@ -32,4 +32,4 @@ El proyecto contiene actualmente:
 1. Clona el repositorio:
 
 ```bash
-git clone URL_DEL_REPOSITORIO
+git clone URL_DEL_REPOSITORIO opeop
