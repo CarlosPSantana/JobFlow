@@ -109,4 +109,17 @@ public class JobApplicationManager {
         applications.remove(application);
 
     }
+
+    public static List<JobApplication> findByPosition(List<JobApplication> applications, String position){
+        
+        List<JobApplication> appPositions = new ArrayList<>();
+
+        for (JobApplication app : applications){
+            if (app.getPosition().toLowerCase().contains(position)) {
+                appPositions.add(app);
+            }
+        }
+
+        return appPositions;
+    }
 }

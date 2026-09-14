@@ -8,7 +8,7 @@ public class Main {
         List<JobApplication> applications = new ArrayList<>();
 
 
-        JobApplication application1 = new JobApplication(0L, "DXC Technology", "Programador Java", "https://example.com", "Canary Islands", 
+        JobApplication application1 = new JobApplication(0L, "DXC Technology", "developer python", "https://example.com", "Canary Islands", 
                                              WorkModality.REMOTE, ApplicationStatus.APPLIED, LocalDate.now(), "Primera candidatura de prueba");
 
 
@@ -23,16 +23,10 @@ public class Main {
         //     System.out.println(app);
         // }
 
-        for (JobApplication app : applications){
-            
-            if (app.getId() == 0) {
-                System.out.println(app.getId());
-            }
-        }
+        List<JobApplication> pruebaPosicion = JobApplicationManager.findByPosition(applications, "developer");
 
 
-
-
+        System.out.println(pruebaPosicion);
 
 
 
