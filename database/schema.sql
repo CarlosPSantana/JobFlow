@@ -54,6 +54,7 @@ SELECT * FROM job_application WHERE LOWER(position) LIKE '%java%';
 SELECT * FROM job_application ORDER BY applied_date ASC;
 
 SELECT status, COUNT(*) FROM job_application GROUP BY status;
+SELECT * FROM job_application;
 
 
 
