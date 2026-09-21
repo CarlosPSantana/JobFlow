@@ -1,3 +1,17 @@
+# Archivos compilados de Java
 bin/
 *.class
+
+# Archivos generados por Maven
+target/
+
+# Configuración local de VS Code
 .vscode/
+
+# Configuración local de Eclipse
+.classpath
+.project
+.settings/
+
+# Variables y secretos locales
+.env
