@@ -16,8 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController 
 @RequestMapping ("/api/applications")
-public class jobApplicationController{
-
+public class jobApplicationController {
     private final JobApplicationService service;
 
     public jobApplicationController(JobApplicationService service) {

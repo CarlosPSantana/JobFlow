@@ -4,7 +4,7 @@ CREATE DATABASE jobFlow;
 USE jobFlow;
 
 CREATE TABLE job_application(
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
     company VARCHAR(150) NOT NULL,
     position VARCHAR(150) NOT NULL,
     job_url varchar(500),
@@ -19,13 +19,13 @@ CREATE TABLE job_application(
 );
 
 CREATE TABLE technologies(
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
     name varchar(150) NOT NULL UNIQUE
 );
 
 CREATE TABLE job_application_technologies(
-    job_application_id INT,
-    technologies_id INT,
+    job_application_id BIGINT,
+    technologies_id BIGINT,
 
     FOREIGN KEY (job_application_id) REFERENCES job_application(id),
     FOREIGN KEY (technologies_id) REFERENCES technologies(id)
@@ -33,8 +33,8 @@ CREATE TABLE job_application_technologies(
 
 
 INSERT INTO job_application(company, position, modality, status, applied_date) VALUES ('DXC', 'Java Junior', 'REMOTE', 'APPLIED','2026-09-16');
-INSERT INTO job_application(company, position, modality, status, applied_date) VALUES ('EMALSA', 'Frontend Developer', 'Hybrid', 'APPLIED','2026-09-1');
-INSERT INTO job_application(company, position, modality, status, applied_date) VALUES ('EMALSA', 'Java Junior', 'REMOTE', 'PRESENTIAL','2026-09-5');
+INSERT INTO job_application(company, position, modality, status, applied_date) VALUES ('EMALSA', 'Frontend Developer', 'HYBRID', 'APPLIED','2026-09-1');
+INSERT INTO job_application(company, position, modality, status, applied_date) VALUES ('EMALSA', 'Java Junior', 'REMOTE', 'APPLIED','2026-09-5');
 INSERT INTO technologies (name)VALUES ('Java'), ('Spring Boot'), ('SQL');
 INSERT INTO job_application_technologies (job_application_id, technologies_id) VALUES (1, 1);
 

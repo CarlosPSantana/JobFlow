@@ -2,17 +2,45 @@ package com.jobFlow.jobFlow.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity 
+@Table(name = "job_application") 
 public class JobApplication {
     
+    @Id 
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String company;
     private String position;
+
+    @Column (name = "job_url")
     private String jobUrl;
+
     private String location;
+
+    @Enumerated (EnumType.STRING)
     private WorkModality modality;
+    
+    @Enumerated (EnumType.STRING)
     private ApplicationStatus status;
+
+    @Column (name = "applied_date")
     private LocalDate appliedDate;
+
     private String notes;
+
+    public JobApplication() {
+    }
+
 
     public JobApplication(Long id, String company, String position, String jobUrl, String location,
             WorkModality modality, ApplicationStatus status, LocalDate appliedDate, String notes) {
