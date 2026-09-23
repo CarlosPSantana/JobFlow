@@ -13,6 +13,10 @@ import com.jobFlow.jobFlow.service.JobApplicationService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+
 
 @RestController 
 @RequestMapping ("/api/applications")
@@ -34,8 +38,12 @@ public class jobApplicationController {
     }
 
     @PostMapping
-    public JobApplication postApplication(@RequestBody JobApplication application) {
-        return service.createApplication(application);
+    public ResponseEntity<JobApplication> postApplication(@RequestBody JobApplication application) {
+        JobApplication created = service.createApplication(application);
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(created);
     }
     
     
