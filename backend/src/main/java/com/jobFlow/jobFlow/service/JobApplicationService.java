@@ -57,6 +57,46 @@ public class JobApplicationService{
         application.setId(null);
 
         return repository.save(application);
+    }
+
+    public JobApplication updateApplication(Long id, JobApplication application){
+
+        JobApplication result = findById(id);
+
+        if (application.getCompany() == null ||
+            application.getCompany().isBlank()) {
+
+            throw new IllegalArgumentException(
+                "La empresa es obligatoria"
+            );
         }
 
-}
+        if (application.getPosition() == null ||
+            application.getPosition().isBlank()) {
+
+            throw new IllegalArgumentException(
+                "El puesto es obligatorio"
+                );
+        }
+
+        result.setCompany(application.getCompany());
+        result.setAppliedDate(application.getAppliedDate());
+        result.setJobUrl(application.getJobUrl());
+        result.setLocation(application.getLocation());
+        result.setModality(application.getModality());
+        result.setNotes(application.getNotes());
+        result.setPosition(application.getPosition());
+        result.setStatus(application.getStatus());
+
+        return repository.save(result);
+
+    }
+
+    public void deleteApplication(Long id){
+
+        JobApplication application = findById(id);
+
+        repository.delete(application);
+    }
+
+} 
