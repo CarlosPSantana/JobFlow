@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jobFlow.jobFlow.dto.JobApplicationRequest;
+import com.jobFlow.jobFlow.dto.JobApplicationResponse;
 import com.jobFlow.jobFlow.model.JobApplication;
 import com.jobFlow.jobFlow.service.JobApplicationService;
 
@@ -33,18 +35,25 @@ public class jobApplicationController {
     }
 
     @GetMapping
-    public List<JobApplication> getApplications() {
-        return service.findAll();
+    public ResponseEntity<List<JobApplicationResponse>> getApplications() {
+        
+        List<JobApplicationResponse> responses = service.findAllResponse();
+
+        return ResponseEntity.ok(responses);
+
     }
 
     @GetMapping("/{id}")
-    public JobApplication getApplicationById(@PathVariable Long id) {
-        return service.findById(id);
+    public ResponseEntity<JobApplicationResponse> getApplicationById(@PathVariable Long id) {
+        JobApplicationResponse response =  service.findResponseById(id);
+
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping
-    public ResponseEntity<JobApplication> postApplication(@Valid @RequestBody JobApplication application) {
-        JobApplication created = service.createApplication(application);
+    public ResponseEntity<JobApplicationResponse> postApplication(@Valid @RequestBody JobApplicationRequest application) {
+        
+        JobApplicationResponse created = service.createApplication(application);
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
@@ -52,9 +61,9 @@ public class jobApplicationController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<JobApplication> putApplication(@PathVariable Long id, @Valid @RequestBody JobApplication application) {
+    public ResponseEntity<JobApplicationResponse> putApplication(@PathVariable Long id, @Valid @RequestBody JobApplicationRequest application) {
         
-        JobApplication updated = service.updateApplication(id, application);
+        JobApplicationResponse updated = service.updateApplication(id, application);
 
         return ResponseEntity
                 .ok(updated);
