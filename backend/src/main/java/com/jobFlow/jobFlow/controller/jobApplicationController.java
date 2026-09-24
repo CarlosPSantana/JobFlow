@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jobFlow.jobFlow.model.JobApplication;
 import com.jobFlow.jobFlow.service.JobApplicationService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -40,7 +43,7 @@ public class jobApplicationController {
     }
 
     @PostMapping
-    public ResponseEntity<JobApplication> postApplication(@RequestBody JobApplication application) {
+    public ResponseEntity<JobApplication> postApplication(@Valid @RequestBody JobApplication application) {
         JobApplication created = service.createApplication(application);
 
         return ResponseEntity
@@ -49,7 +52,7 @@ public class jobApplicationController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<JobApplication> putApplication(@PathVariable Long id, @RequestBody JobApplication application) {
+    public ResponseEntity<JobApplication> putApplication(@PathVariable Long id, @Valid @RequestBody JobApplication application) {
         
         JobApplication updated = service.updateApplication(id, application);
 

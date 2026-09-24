@@ -10,6 +10,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity 
 @Table(name = "job_application") 
@@ -19,18 +22,26 @@ public class JobApplication {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "La empresa es obligatoria.")
+    @Size(max = 150, message = "La empresa no debe superar los 150 caracteres.")
     private String company;
+
+    @NotBlank(message = "La posición es obligatoria.")
+    @Size(max = 150, message = "La posición no debe superar los 150 caracteres.")
     private String position;
 
     @Column (name = "job_url")
+    @Size(max = 500, message = "La url no debe superar los 500 caracteres.")
     private String jobUrl;
 
+    @Size(message = "La localización no debe superar los 150 caracteres.")
     private String location;
 
     @Enumerated (EnumType.STRING)
     private WorkModality modality;
     
     @Enumerated (EnumType.STRING)
+    @NotNull(message = "El status es esencial.")  
     private ApplicationStatus status;
 
     @Column (name = "applied_date")
