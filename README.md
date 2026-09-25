@@ -1,35 +1,50 @@
 # JobFlow
 
-JobFlow es una aplicación en Java pensada para gestionar y hacer seguimiento de candidaturas de empleo.
+API REST para gestionar y hacer seguimiento de candidaturas de empleo.
 
-El objetivo del proyecto es utilizarlo como práctica para reforzar conocimientos de desarrollo backend y, progresivamente, ampliarlo con tecnologías como Spring Boot, APIs REST, bases de datos y testing.
+## Tecnologías
 
-## Día 1
+- Java 21
+- Spring Boot
+- Spring Web
+- Spring Data JPA
+- MySQL
+- Bean Validation
+- JUnit
+- Mockito
+- Maven
+- Git
 
-En el primer día del proyecto he trabajado principalmente:
+## Funcionalidades
 
-- Creación de clases y objetos en Java.
-- Encapsulación mediante atributos privados.
-- Uso de `enum` para representar estados y modalidades de trabajo.
-- Uso de `ArrayList` para gestionar candidaturas.
-- Creación de métodos para buscar candidaturas y cambiar su estado.
-- Separación de la lógica en una clase `JobApplicationManager`.
-- Primeros pasos con Git y GitHub.
-- Creación de commits y subida del proyecto a un repositorio remoto.
+- Crear candidaturas
+- Consultar todas las candidaturas
+- Consultar candidatura por ID
+- Actualizar candidaturas
+- Eliminar candidaturas
+- Validación de datos
+- Gestión centralizada de errores
+- Persistencia en MySQL
+- DTOs de entrada y salida
+- Tests automatizados
 
-## Estructura actual
+## Endpoints
 
-El proyecto contiene actualmente:
+| Método | Endpoint | Acción |
+|---|---|---|
+| GET | `/api/applications` | Listar candidaturas |
+| GET | `/api/applications/{id}` | Buscar candidatura |
+| POST | `/api/applications` | Crear candidatura |
+| PUT | `/api/applications/{id}` | Actualizar candidatura |
+| DELETE | `/api/applications/{id}` | Eliminar candidatura |
 
-- `Main.java`
-- `JobApplication.java`
-- `JobApplicationManager.java`
-- `ApplicationStatus.java`
-- `WorkModality.java`
+## Ejecutar el proyecto
 
-## Cómo ejecutar el proyecto
+La aplicación necesita una base de datos MySQL `jobflow`.
 
-1. Clona el repositorio:
+La contraseña se configura mediante la variable de entorno: `DB_PASSWORD`
+
+## Tests
 
 ```bash
-git clone URL_DEL_REPOSITORIO aaaaaaaaaaaaaaaaaaaa
+./mvnw test
