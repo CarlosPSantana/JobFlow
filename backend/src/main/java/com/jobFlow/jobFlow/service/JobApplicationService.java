@@ -55,15 +55,13 @@ public class JobApplicationService{
 
     }
 
-    public JobApplicationResponse createApplication(JobApplicationRequest application){
+    public JobApplicationResponse createApplication(JobApplicationRequest request) {
 
-        JobApplication entity = toEntity(application);
+        JobApplication entity = toEntity(request);
 
-        repository.save(entity);
+        JobApplication savedEntity = repository.save(entity);
 
-        JobApplicationResponse response = toResponse(entity);
-
-        return response;
+        return toResponse(savedEntity);
     }
 
     public JobApplicationResponse updateApplication(Long id, JobApplicationRequest request){
