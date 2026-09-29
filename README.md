@@ -13,6 +13,7 @@ API REST para gestionar y hacer seguimiento de candidaturas de empleo.
 - JUnit
 - Mockito
 - Maven
+- OpenAPI / Swagger
 - Git
 
 ## Funcionalidades
@@ -48,3 +49,13 @@ La contraseña se configura mediante la variable de entorno: `DB_PASSWORD`
 
 ```bash
 ./mvnw test
+
+## Documentación de la API
+
+Con la aplicación ejecutándose, la documentación interactiva está disponible en:
+
+`http://localhost:8080/swagger-ui.html`
+
+La especificación OpenAPI está disponible en:
+
+`http://localhost:8080/v3/api-docs`
