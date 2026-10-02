@@ -17,6 +17,7 @@ import com.jobFlow.jobFlow.service.JobApplicationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
@@ -92,6 +93,7 @@ public class jobApplicationController {
         responseCode = "400",
         description = "Credenciales incorrectas"
     )})
+    @SecurityRequirement(name = "basicAuth")
 
     @PostMapping
     public ResponseEntity<JobApplicationResponse> postApplication(@Valid @RequestBody JobApplicationRequest application) {
@@ -120,6 +122,7 @@ public class jobApplicationController {
         responseCode = "404",
         description = "Candidatura no encontrada"
     )})
+    @SecurityRequirement(name = "basicAuth")
 
     @PutMapping("/{id}")
     public ResponseEntity<JobApplicationResponse> putApplication(@PathVariable Long id, @Valid @RequestBody JobApplicationRequest application) {
@@ -143,6 +146,7 @@ public class jobApplicationController {
         responseCode = "404",
         description = "Candidatura no encontrada"
     )})
+    @SecurityRequirement(name = "basicAuth")
 
     @DeleteMapping("/{id}")
     public ResponseEntity<JobApplication> deleteApplication(@PathVariable Long id){
