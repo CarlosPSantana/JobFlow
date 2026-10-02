@@ -6,12 +6,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+import com.jobFlow.jobFlow.model.AppUser;
+import com.jobFlow.jobFlow.repository.AppUserRepository;
 
 @Configuration 
 public class SecurityConfig {
@@ -60,23 +62,24 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean 
-    public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder){
+    @Bean
+    public UserDetailsService userDetailsService(AppUserRepository repository) {
 
-        UserDetails admin = User
-        .withUsername("admin")
-        .password(passwordEncoder.encode("admin123"))
-        .roles("ADMIN")
-        .build();
+        return username -> {
 
-        UserDetails user = User
-        .withUsername("user")
-        .password(passwordEncoder.encode("user123"))
-        .roles("USER")
-        .build();
+            AppUser appUser = repository.findByUsername(username)
+                    .orElseThrow(() ->
+                        new UsernameNotFoundException(
+                            "Usuario no encontrado: " + username
+                        )
+                    );
 
-        return new InMemoryUserDetailsManager(admin, user);
-
+            return User
+                    .withUsername(appUser.getUsername())
+                    .password(appUser.getPassword())
+                    .roles(appUser.getRole().name())
+                    .build();
+        };
     }
-    
+        
 }

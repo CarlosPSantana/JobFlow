@@ -15,6 +15,7 @@ API REST para gestionar y hacer seguimiento de candidaturas de empleo.
 - Maven
 - OpenAPI / Swagger
 - Git
+- Spring Security
 
 ## Funcionalidades
 
@@ -28,6 +29,9 @@ API REST para gestionar y hacer seguimiento de candidaturas de empleo.
 - Persistencia en MySQL
 - DTOs de entrada y salida
 - Tests automatizados
+- Autenticación mediante HTTP Basic
+- Autorización por roles
+- Endpoints de escritura protegidos para usuarios ADMIN
 
 ## Endpoints
 
