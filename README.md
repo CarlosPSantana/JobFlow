@@ -32,6 +32,7 @@ API REST para gestionar y hacer seguimiento de candidaturas de empleo.
 - Autenticación mediante HTTP Basic
 - Autorización por roles
 - Endpoints de escritura protegidos para usuarios ADMIN
+- Usuarios persistidos en MySQL para autenticación
 
 ## Endpoints
 

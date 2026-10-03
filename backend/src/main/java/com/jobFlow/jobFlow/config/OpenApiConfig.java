@@ -20,9 +20,10 @@ public class OpenApiConfig {
                 .description(
                     "API REST para gestionar y hacer seguimiento de candidaturas de empleo."))
             .components(new Components()
-                .addSecuritySchemes("basicAuth", new SecurityScheme()
+                .addSecuritySchemes("bearerAuth", new SecurityScheme()
                     .type(SecurityScheme.Type.HTTP)
-                    .scheme("basic")
+                    .scheme("bearer")
+                    .bearerFormat("JWT")
                 )
             );
     }

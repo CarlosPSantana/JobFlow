@@ -93,7 +93,7 @@ public class jobApplicationController {
         responseCode = "400",
         description = "Credenciales incorrectas"
     )})
-    @SecurityRequirement(name = "basicAuth")
+    @SecurityRequirement(name = "bearerAuth")
 
     @PostMapping
     public ResponseEntity<JobApplicationResponse> postApplication(@Valid @RequestBody JobApplicationRequest application) {
@@ -122,7 +122,7 @@ public class jobApplicationController {
         responseCode = "404",
         description = "Candidatura no encontrada"
     )})
-    @SecurityRequirement(name = "basicAuth")
+    @SecurityRequirement(name = "bearerAuth")
 
     @PutMapping("/{id}")
     public ResponseEntity<JobApplicationResponse> putApplication(@PathVariable Long id, @Valid @RequestBody JobApplicationRequest application) {
@@ -146,7 +146,7 @@ public class jobApplicationController {
         responseCode = "404",
         description = "Candidatura no encontrada"
     )})
-    @SecurityRequirement(name = "basicAuth")
+    @SecurityRequirement(name = "bearerAuth")
 
     @DeleteMapping("/{id}")
     public ResponseEntity<JobApplication> deleteApplication(@PathVariable Long id){
